@@ -1,8 +1,8 @@
 package com.gourianova.binocularvision.service;
 
+import com.gourianova.binocularvision.exception.DeveloperNotFoundException;
 import com.gourianova.binocularvision.model.Developer;
 import com.gourianova.binocularvision.repo.DeveloperRepo;
-import com.gourianova.binocularvision.rxception.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +28,7 @@ public class DeveloperService {
     }
     public Developer findDeveloperById(Integer id){
         return developerRepo.findDeveloperById(id).
-                orElseThrow(()-> new UserNotFoundException("User by id" + id + "not found"));
+                orElseThrow(()-> new DeveloperNotFoundException("Developer by id" + id + "not found"));
 
     }
 

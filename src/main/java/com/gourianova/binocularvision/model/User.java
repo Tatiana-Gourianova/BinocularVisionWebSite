@@ -1,11 +1,16 @@
 package com.gourianova.binocularvision.model;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Objects;
 
-
-public class User {
+@Entity
+public class User implements Serializable {
+    @Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+@Column(nullable = false, updatable = false)
     private int id;
     private String login;
     private String password;
@@ -29,6 +34,15 @@ public class User {
         this.create_time=create_time;
     }
 
+    public User(String login, String password, String firstName, String lastName,  BigDecimal balance, int roleId, LocalDate create_time) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.login = login;
+        this.password = password;
+        this.balance = balance;
+        this.roleId = roleId;
+        this.create_time=create_time;
+    }
     public int getId() {
         return id;
     }
