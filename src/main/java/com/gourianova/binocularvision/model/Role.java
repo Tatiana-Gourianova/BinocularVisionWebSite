@@ -1,9 +1,13 @@
 package com.gourianova.binocularvision.model;
 
+import javax.persistence.*;
 import java.util.Objects;
 
-
+@Entity
 public class Role {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false, updatable = false)
     private int id;
     private String role;
 

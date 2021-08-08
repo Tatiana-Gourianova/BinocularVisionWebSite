@@ -4,6 +4,8 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -18,6 +20,15 @@ public class User implements Serializable {
     private String lastName;
     private BigDecimal balance;
     private int roleId;
+    //TODO: ask difference @Entity
+//    private User user;
+//    @OneToMany(
+//            mappedBy = "user",
+//            orphanRemoval = true,
+//            cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
+//            fetch = FetchType.LAZY
+//    )
+//    private List<Role> roles = new ArrayList<>();
     private LocalDate create_time;
 
     public User() {
